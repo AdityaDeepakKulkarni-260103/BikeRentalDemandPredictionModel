@@ -54,3 +54,66 @@ The model predicts the count of total rental bikes based on the following factor
 
 ### Model Coefficients
 The coefficients of the model are:
+[-4.68113842e-14 -7.00521884e-13 -7.63817285e-13 1.18991695e-13 9.69340993e-13 1.04427445e-13 6.83890429e+02 1.57894944e+03 9.60458391e-14 -4.15326891e-13 2.02364857e-13 7.51931009e-13 4.86889466e-13 -1.05438375e-13 1.05999700e-13 6.60709620e-13 4.71357850e-13 3.84265397e-14 9.79261968e-14 9.60835231e-14 -1.37483631e-13 -2.79589539e-13 -2.68846138e-13]
+
+The intercept of the model is:  
+`4546.361301369863`
+
+---
+
+## Assignment-based Subjective Questions
+
+### 1. From your analysis of the categorical variables from the dataset, what could you infer about their effect on the dependent variable?
+The categorical variables in the dataset, such as **season**, **holiday**, and **working day**, have a significant impact on the demand for shared bikes. The model's coefficients indicate that **summer** and **spring seasons** have a positive impact on the demand, while **holidays** and **non-working days** have a negative impact.
+
+### 2. Why is it important to use drop_first=True during dummy variable creation?
+Using `drop_first=True` during dummy variable creation is important to avoid **multicollinearity** in the model. When creating dummy variables, one category is used as the **reference category**, and the coefficients of the other categories are calculated relative to this reference. Without dropping the first category, the model becomes **over-specified**, resulting in non-unique coefficients.
+
+### 3. Looking at the pair-plot among the numerical variables, which one has the highest correlation with the target variable?
+The pair-plot shows that the **temp** variable has the highest correlation with the target variable **cnt**.
+
+### 4. How did you validate the assumptions of Linear Regression after building the model on the training set?
+The assumptions of **Linear Regression** were validated as follows:  
+- **Linearity**: Checked using pair-plot.  
+- **Homoscedasticity**: Assessed through the residual plot.  
+- **Normality of residuals**: Verified using a Q-Q plot.  
+- **Multicollinearity**: Checked using **VIF** (Variance Inflation Factor) values.
+
+### 5. Based on the final model, which are the top 3 features contributing significantly towards explaining the demand of the shared bikes?
+The top 3 features contributing significantly to explaining the demand for shared bikes are:
+1. **temp** (Temperature)  
+2. **workingday**  
+3. **season**
+
+---
+
+## General Subjective Questions
+
+### 1. Explain the linear regression algorithm in detail.
+Linear regression is a **supervised learning algorithm** that predicts a continuous output variable based on one or more input features. The algorithm works by finding the **best-fitting line** that minimizes the sum of squared errors between the predicted and actual values. The equation of the line is represented as:  
+y = β0 + β1x + ε
+Where:
+- **y** is the output variable  
+- **x** is the input feature  
+- **β0** is the intercept  
+- **β1** is the slope  
+- **ε** is the error term
+
+### 2. Explain the Anscombe’s quartet in detail.
+Anscombe's quartet is a set of **four datasets** that have the same statistical properties (mean, variance, correlation), but have different relationships between the variables when visualized. It is used to demonstrate the importance of **visualizing data** before modeling, as statistical properties alone do not reveal the underlying relationships.
+
+### 3. What is Pearson’s R?
+**Pearson's R** is a measure of the **linear correlation** between two continuous variables. It ranges from **-1** to **1**:  
+- **1** indicates a perfect positive correlation  
+- **-1** indicates a perfect negative correlation  
+- **0** indicates no correlation
+
+### 4. What is scaling? Why is scaling performed? What is the difference between normalized scaling and standardized scaling?
+**Scaling** transforms data to a common scale to prevent features with large ranges from dominating the model.  
+- **Normalized scaling (min-max scaling)**: Scales data to a range (usually between 0 and 1) by subtracting the minimum value and dividing by the range.  
+- **Standardized scaling (z-scoring)**: Scales data to have a **mean of 0** and **standard deviation of 1** by subtracting the mean and dividing by the standard deviation.
+
+### 5. You might have observed that sometimes the value of VIF is infinite. Why does this happen?
+The value of **VIF** (Variance Inflation Factor) becomes infinite when the **correlation between two or more features is perfect** (i.e., the features are linearly dependent). This occurs because VIF is calculated as:  
+1 / (1 - R^2)
+When **R = 1** (perfect correlation), the denominator becomes **0**, resulting in an **infi
