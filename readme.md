@@ -34,30 +34,44 @@ The model is evaluated using the following metrics:
 - **Coefficient of Determination (R-squared)** :1.0
 
 ## Model Interpretation
-The model predicts the count of total rental bikes based on the following factors:
 
-- **instant**: Record index  
-- **dteday**: Date  
-- **season**: Season (1: Spring, 2: Summer, 3: Fall, 4: Winter)  
-- **yr**: Year (0: 2018, 1: 2019)  
-- **mnth**: Month (1 to 12)  
-- **holiday**: Whether the day is a holiday (1: Yes, 0: No)  
-- **weekday**: Day of the week  
-- **workingday**: If day is neither weekend nor holiday (1: Yes, 0: No)  
-- **weathersit**: Weather situation (1: Clear, 2: Mist, 3: Light Snow, 4: Heavy Rain)  
-- **temp**: Temperature in Celsius  
-- **atemp**: Feels-like temperature in Celsius  
-- **hum**: Humidity  
-- **windspeed**: Wind speed  
-- **casual**: Count of casual users  
-- **registered**: Count of registered users  
+The model predicts the count of total rental bikes (`cnt`) based on the following factors:
 
-### Model Coefficients
-The coefficients of the model are:
-[-4.68113842e-14 -7.00521884e-13 -7.63817285e-13 1.18991695e-13 9.69340993e-13 1.04427445e-13 6.83890429e+02 1.57894944e+03 9.60458391e-14 -4.15326891e-13 2.02364857e-13 7.51931009e-13 4.86889466e-13 -1.05438375e-13 1.05999700e-13 6.60709620e-13 4.71357850e-13 3.84265397e-14 9.79261968e-14 9.60835231e-14 -1.37483631e-13 -2.79589539e-13 -2.68846138e-13]
+- **instant**: record index
+- **dteday**: date
+- **season**: season (1: spring, 2: summer, 3: fall, 4: winter)
+- **yr**: year (0: 2018, 1: 2019)
+- **mnth**: month (1 to 12)
+- **holiday**: whether the day is a holiday or not
+- **weekday**: day of the week
+- **workingday**: if the day is neither a weekend nor a holiday (1: Yes, 0: No)
+- **weathersit**: weather situation (1: Clear, 2: Mist, 3: Light Snow, 4: Heavy Rain)
+- **temp**: temperature in Celsius
+- **atemp**: feels-like temperature in Celsius
+- **hum**: humidity
+- **windspeed**: wind speed
+- **casual**: count of casual users
+- **registered**: count of registered users
 
-The intercept of the model is:  
-`4546.361301369863`
+### Coefficient Interpretation
+
+From the given coefficients, here’s what we can infer about the model:
+
+1. **Temperature (temp)**: A positive coefficient for temperature suggests that higher temperatures lead to increased bike rental demand, as warmer weather is more conducive to outdoor activities.
+   
+2. **Working Day (workingday)**: The model indicates that the demand for bikes is higher on working days. People are more likely to rent bikes for commuting during weekdays.
+
+3. **Season (season)**: 
+   - Spring and summer have positive coefficients, meaning that during these seasons, bike rentals increase. In contrast, colder seasons like winter reduce bike rental demand.
+
+4. **Casual and Registered Users**: Both casual and registered users contribute positively to the total count of rented bikes, which aligns with the model’s objective of predicting total rentals.
+
+5. **Weather Situation (weathersit)**: Clearer weather conditions correlate with higher bike rental demand, whereas extreme weather (such as heavy rain or snow) decreases the number of rentals.
+
+### Summary:
+
+The model highlights that factors like **warmer temperatures**, **working days**, **clear weather**, and **favorable seasons** (spring and summer) positively influence the demand for rental bikes. Conversely, colder temperatures, holidays, and extreme weather conditions reduce bike rental demand.
+
 
 ---
 
