@@ -116,4 +116,4 @@ Anscombe's quartet is a set of **four datasets** that have the same statistical 
 ### 5. You might have observed that sometimes the value of VIF is infinite. Why does this happen?
 The value of **VIF** (Variance Inflation Factor) becomes infinite when the **correlation between two or more features is perfect** (i.e., the features are linearly dependent). This occurs because VIF is calculated as:  
 1 / (1 - R^2)
-When **R = 1** (perfect correlation), the denominator becomes **0**, resulting in an **infi
+When **R = 1** (perfect correlation), the denominator becomes **0**, resulting in an **infinite VIF**
